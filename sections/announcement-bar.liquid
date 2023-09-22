@@ -26,7 +26,7 @@
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
-    {%- if section.settings.slider_switcher == false -%}
+    {%- if section.blocks.size == 1 -%}
       <div
         class="announcement-bar{% if section.settings.show_social %} announcement-bar--one-announcement{% endif %}"
         role="region"
@@ -51,7 +51,7 @@
           {%- endif -%}
         {%- endif -%}
       </div>
-    {%- else -%}
+    {%- elsif section.blocks.size > 1 -%}
       <slideshow-component
         class="announcement-bar"
         role="region"
@@ -243,10 +243,6 @@
       "id": "show_social",
       "default": false,
       "label": "t:sections.announcement-bar.settings.show_social.label"
-    },
-    {
-      "type": "header",
-      "content": "Contact link",
     },
     {
       "type": "checkbox",
