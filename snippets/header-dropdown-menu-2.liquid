@@ -5,15 +5,9 @@ Usage:
 {% render 'header-dropdown-menu' %}
 {% endcomment %}
 
-<nav class="header__inline-menu">
+<nav class="header__inline-menu header__inline-menu-2">
   <ul class="list-menu list-menu--inline" role="list">
-
-  {%- if section.settings.logo_position == 'middle-center' -%}
-    {%- assign limit = 4 -%}
-    {%- else -%}
-    {%- assign limit = 100 -%}
-  {%- endif -%}
-    {%- for link in section.settings.menu.links limit: limit -%}
+    {%- for link in section.settings.menu.links offset: 4 limit: 4-%}
       <li>
         {%- if link.links != blank -%}
           <header-menu>
